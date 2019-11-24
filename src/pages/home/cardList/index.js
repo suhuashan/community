@@ -4,6 +4,7 @@ import './index.less';
 import get from 'lodash/get';
 import ajax from '@/util/request';
 import uuid from '@/util/uuid';
+import { GET_CARD_LIST } from '@/const/api';
 
 
 function CardList () {
@@ -17,7 +18,7 @@ function CardList () {
      */
     function getCardList (limit, offset) {
         ajax({
-            url: '/home/cardList.json',
+            url: GET_CARD_LIST,
             data: {
                 limit,
                 offset
