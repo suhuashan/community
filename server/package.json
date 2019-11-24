@@ -1,0 +1,41 @@
+{
+  "name": "koa2-frame",
+  "version": "1.0.0",
+  "description": "koa frame for project",
+  "main": "app.js",
+  "dependencies": {
+    "busboy": "^0.3.1",
+    "ejs": "^2.7.1",
+    "ioredis": "^4.14.1",
+    "koa": "^2.10.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-logger": "^3.2.1",
+    "koa-mysql-session": "0.0.2",
+    "koa-onerror": "^4.1.0",
+    "koa-views": "^6.2.1",
+    "koa2-cors": "^2.0.6",
+    "log4js": "^5.3.0",
+    "moment": "^2.24.0",
+    "mysql2": "^1.7.0",
+    "sequelize": "^5.21.1"
+  },
+  "devDependencies": {
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.12.3",
+    "koa-static": "^5.0.0"
+  },
+  "scripts": {
+    "initDB": "node ./db/initDB.js",
+    "server": "nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suhuashan/koa2-frame.git"
+  },
+  "author": "suhuashan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suhuashan/koa2-frame/issues"
+  },
+  "homepage": "https://github.com/suhuashan/koa2-frame#readme"
+}
