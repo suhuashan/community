@@ -1,15 +1,14 @@
 # Community
 
-### 前端
-react 
+### 技术栈
+
+##### 前端
 redux
 react-redux
 axios
 antd
 
-
-
-### 后端
+##### 后端技术栈
 koa2
 mysql 
 sequelize
