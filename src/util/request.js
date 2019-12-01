@@ -2,8 +2,10 @@ import axios from 'axios';
 import qs from 'qs';
 
 // axios默认参数配置
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.timeout = 10000;
+axios.defaults.withCredentials = true;
+
 const ajax = (option) => {
     let ajaxUrl = option.url;
 
