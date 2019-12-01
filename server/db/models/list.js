@@ -1,31 +1,33 @@
 let Sequelize = require("sequelize");
 let sequelize = require("../index.js");
 
-const Book = sequelize.define(
-    "book",
+const List = sequelize.define(
+    "list",
     {
         id: {
             primaryKey: true,
             type: Sequelize.INTEGER,
             autoIncrement: true
         },
-        bookName: Sequelize.STRING,
-        bookAuthor: Sequelize.STRING,
-        userId: Sequelize.INTEGER
+        title: Sequelize.STRING,
+        content: Sequelize.STRING,
+        views: Sequelize.INTEGER,
+        time: Sequelize.STRING,
     },
     {
         charset: 'utf8',
         timestamps: false,
-        freezeTableName: true
+        freezeTableName: true,
+        underscored: false
     }
 );
 
-Book.associate = function (models) {
-    models.book.belongsTo(models.user,{
+List.associate = function (models) {
+    models.list.belongsTo(models.user,{
         foreignKey: 'userId',
         targetKey: 'id'
     });
 };
 
-module.exports = Book;
+module.exports = List;
 
