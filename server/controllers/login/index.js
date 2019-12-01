@@ -4,17 +4,15 @@ const User = model.user;
 
 const login = async (ctx) => {
 
-    let userId = ctx.request.body.userId,
-        password = ctx.request.body.password,
+    let { account, password } = ctx.request.body;
         res = await User.findAll({
             where: {
-                id: userId,
-                password
+                userAcco: account,
+                userPass: password
             }
         });
     if (res.length) {
-        console.log(userId);
-        ctx.session.userId = userId;
+        ctx.session.userId = account;
         ctx.body = new SuccessModel('登陆成功');
     } else {
         ctx.body = new ErrorModel('密码或账号错误，请重试');

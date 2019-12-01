@@ -22,6 +22,7 @@ function Login (props) {
         validateFields((err, values) => {
             if (!err) {
                 ajax({
+                    method: 'POST',
                     url: LOGIN,
                     data: values
                 }).then(res => {
@@ -40,7 +41,7 @@ function Login (props) {
         <section className="login-wrapper">
             <Form onSubmit={handleSubmit} className="login-form">
                 <Form.Item>
-                    {getFieldDecorator('username', {
+                    {getFieldDecorator('account', {
                         rules: [{ required: true, message: 'Please input your username!' }],
                     })(
                         <Input
