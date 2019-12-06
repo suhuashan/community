@@ -12,13 +12,9 @@ const ajax = (option) => {
     let ajaxMethod = option.method ? option.method.toLowerCase() : "get";
     var ajaxData = null;
     if (ajaxMethod === "get") {
-        ajaxData = {
-            params: option.data || {}
-        }
+        ajaxData = {params: option.data || {}};
     } else {
-        ajaxData = {
-            data: qs.stringify(option.data || {})
-        }
+        ajaxData = {data: option.data};
     }
     return new Promise(function (resolve, reject) {
         axios({
@@ -26,7 +22,7 @@ const ajax = (option) => {
             type: 'json',
             method: ajaxMethod,
             headers: {
-                "content-type": "application/x-www-form-urlencoded"
+                "content-type": "application/json"
             },
             ...ajaxData
         }).then((res) => {

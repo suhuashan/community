@@ -25,7 +25,8 @@ const List = sequelize.define(
 List.associate = function (models) {
     models.list.belongsTo(models.user,{
         foreignKey: 'userId',
-        targetKey: 'id'
+        targetKey: 'id',
+        as: 'user'
     });
 };
 

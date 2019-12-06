@@ -24,7 +24,8 @@ const Draft = sequelize.define(
 Draft.associate = function (models) {
     models.draft.belongsTo(models.user,{
         foreignKey: 'userId',
-        targetKey: 'id'
+        targetKey: 'id',
+        as: 'user'
     });
 };
 

@@ -19,11 +19,13 @@ function CardList () {
     function getCardList (limit, offset) {
         ajax({
             url: GET_CARD_LIST,
+            method: 'POST',
             data: {
                 limit,
                 offset
             }
         }).then( res => {
+            console.log(res);
             setCardList(get(res, 'data.list', []));
             setCardListNum(get(res, 'data.total', 0));
         });

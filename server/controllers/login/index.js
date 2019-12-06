@@ -26,5 +26,5 @@ const logout = async (ctx) => {
 
 module.exports = {
     'POST /login': login,
-    'GET /logout': logout
+    'POST /logout': logout
 }
