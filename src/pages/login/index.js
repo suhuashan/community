@@ -8,8 +8,8 @@ import get from 'lodash/get';
 import './index.less';
 
 const AUTH_STATUS = {
-    1: ADVANCED_USER,
-    2: GENERAL_USER
+    1: GENERAL_USER,
+    2: ADVANCED_USER
 };
 
 function Login (props) {
@@ -26,8 +26,12 @@ function Login (props) {
                     url: LOGIN,
                     data: values
                 }).then(res => {
-                    let auth = get(res, 'data.auth', 0);
-                    dispatch({type: AUTH_STATUS[auth]});
+                    let auth = get(res, 'data.auth', 0),
+                        user = get(res, 'data.user', '');
+                    dispatch({
+                        type: AUTH_STATUS[auth],
+                        user
+                    });
                     message.success('登录成功');
                     history.replace('/home');
                 }).catch(() => {
