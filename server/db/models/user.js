@@ -12,6 +12,7 @@ const User = sequelize.define(
         userName: Sequelize.STRING,
         userAcco: Sequelize.STRING,
         userPass: Sequelize.STRING,
+        userType: Sequelize.INTEGER,
         article: Sequelize.INTEGER
     },
     {
