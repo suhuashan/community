@@ -14,6 +14,7 @@ function HotPoint () {
     function getHotPoint (limit, offset) {
         ajax({
             url: GET_HOT_POINT,
+            method: 'POST',
             data: {
                 limit,
                 offset

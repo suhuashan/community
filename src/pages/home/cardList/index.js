@@ -25,7 +25,6 @@ function CardList () {
                 offset
             }
         }).then( res => {
-            console.log(res);
             setCardList(get(res, 'data.list', []));
             setCardListNum(get(res, 'data.total', 0));
         });
