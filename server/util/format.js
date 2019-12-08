@@ -5,7 +5,7 @@ const moment = require('moment');
  * @returns {String} YYYY-MM-Do
  */
 function getFormatTime () {
-    return moment().format('YYYY-MM-DD');
+    return moment().format('YYYY-MM-DD hh:mm:ss');
 }
 
 exports.getFormatTime = getFormatTime;

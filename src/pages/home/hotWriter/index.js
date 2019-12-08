@@ -12,6 +12,7 @@ function HotWriter () {
     function getHotWriter (limit, offset) {
         ajax({
             url: GET_HOT_WRITER,
+            method: 'POST',
             data: {
                 limit,
                 offset
