@@ -1,40 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { List, Icon, Tooltip } from 'antd';
 import './index.less';
-import ajax from '@/util/request';
 import { GET_HOT_POINT } from '@/const/api';
-import get from 'lodash/get';
+import useGetHomeData from '../hooks';
 
 function HotPoint () {
-    const [hotList, setHotList] = useState([]);
-
-    /**
-     * @description: 获取热门话题
-     */
-    function getHotPoint (limit, offset) {
-        ajax({
-            url: GET_HOT_POINT,
-            method: 'POST',
-            data: {
-                limit,
-                offset
-            }
-        }).then((res) => {
-            setHotList(get(res, 'data.list', []));
-        });
-    }
-
-    /**
-     * @description: 获取更多话题
-     */
-    function getMorePoint () {
-        let hotListLen = hotList.length;
-        getHotPoint(5, hotListLen);
-    }
-
-    useEffect(() => {
-        getHotPoint(5, 0);
-    }, []);
+    const { hotData, getMoreData } = useGetHomeData(GET_HOT_POINT);
 
     return (
         <section className="hot-point">
@@ -42,10 +13,10 @@ function HotPoint () {
                 size="small"
                 header={<div>热门话题</div>}
                 footer={
-                    <div className="more-point" onClick={getMorePoint}>更多话题</div>
+                    <div className="more-point" onClick={getMoreData}>更多话题</div>
                 }
                 bordered
-                dataSource={hotList}
+                dataSource={hotData}
                 renderItem={item => 
                 <List.Item>
                     

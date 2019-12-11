@@ -1,35 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { List, Icon, Tooltip } from 'antd';
-import ajax from '@/util/request';
 import { GET_HOT_WRITER } from '@/const/api';
-import get from 'lodash/get';
+import useGetHomeData from '../hooks';
 
 import './index.less';
 
 function HotWriter () {
-    const [hotWriter, setHotWriter] = useState();
-
-    function getHotWriter (limit, offset) {
-        ajax({
-            url: GET_HOT_WRITER,
-            method: 'POST',
-            data: {
-                limit,
-                offset
-            }
-        }).then(res => {
-            setHotWriter(get(res, 'data.list', []));
-        });
-    }
-
-    function getMoreWriter () {
-        let offset = hotWriter.length;
-        getHotWriter(5, offset);
-    }
-
-    useEffect(() => {
-        getHotWriter(5, 0);
-    }, []);
+    const { hotData, getMoreData } = useGetHomeData(GET_HOT_WRITER);
 
     return (
         <section className="hot-writer">
@@ -37,10 +14,10 @@ function HotWriter () {
                 size="small"
                 header={<div>热榜作者</div>}
                 footer={
-                    <div className="more-writer" onClick={getMoreWriter}>更多作者</div>
+                    <div className="more-writer" onClick={getMoreData}>更多作者</div>
                 }
                 bordered
-                dataSource={hotWriter}
+                dataSource={hotData}
                 renderItem={item => 
                 <List.Item>
                     <Tooltip placement="topLeft" title={item.writer}>
