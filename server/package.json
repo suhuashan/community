@@ -8,7 +8,7 @@
     "ejs": "^2.7.1",
     "ioredis": "^4.14.1",
     "koa": "^2.10.0",
-    "koa-bodyparser": "^3.2.0",
+    "koa-bodyparser": "^4.3.0",
     "koa-logger": "^3.2.1",
     "koa-mysql-session": "0.0.2",
     "koa-onerror": "^4.1.0",
